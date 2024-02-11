@@ -19,14 +19,14 @@ fn main() {
     // Next, read the contents of the input file into a string for easier processing.
     let input = std::fs::read_to_string(&args[1]).expect("Error opening file");
     // Line-by-line processing is easiest.
-    let mut input = input.lines();
+    let input = input.lines();
 
     // --- TASK BEGIN ---
     let mut total_score = 0;
 
-    while let Some(line) = input.next() {
+    for line in input {
         // Translate the line's first character into its respective shape.
-        let opponent_shape = match line.chars().nth(0) {
+        let opponent_shape = match line.chars().next() {
             Some('A') => Rock,
             Some('B') => Paper,
             Some('C') => Scissors,

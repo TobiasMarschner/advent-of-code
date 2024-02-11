@@ -8,7 +8,7 @@ fn main() {
     // Next, read the contents of the input file into a string for easier processing.
     let input = std::fs::read_to_string(&args[1]).expect("Error opening file");
     // Line-by-line processing is easiest.
-    let mut input = input.lines();
+    let input = input.lines();
 
     // --- TASK BEGIN ---
 
@@ -17,7 +17,7 @@ fn main() {
     let mut cals = 0u32;
 
     // Iterate line-by-line.
-    while let Some(line) = input.next() {
+    for line in input {
         // println!("Line is: {line}");
         match line.parse::<u32>() {
             Ok(num) => cals += num,
